@@ -11,7 +11,7 @@ param (
 	$BackupDirectory = "/home/minecraft/Server/Backups"
 )
 
-if(!Test-Path $BackupDirectory) {
+if(!(Test-Path $BackupDirectory)) {
 	New-Item -Path $BackupDirectory -ItemType Directory
 }
 
