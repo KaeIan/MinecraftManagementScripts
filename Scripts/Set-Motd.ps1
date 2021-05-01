@@ -1,11 +1,11 @@
 [CmdletBinding()]
 param (
-	[Parameter(Mandatory = $true)]
+	[Parameter()]
 	[ValidateNotNullOrEmpty()]
 	[String]
 	$ServerDirectory = "/home/minecraft/Server",
 
-	[Parameter(Mandatory = $false)]
+	[Parameter()]
 	[String]
 	$Motd
 )
@@ -13,7 +13,7 @@ param (
 # get resources path.
 $ResourcesDir = Join-Path -Path $PSScriptRoot -ChildPath ..\Resources
 
-if ($null -ne $Motd) {
+if ($null -eq $Motd) {
 	$message = Get-Content $ResourcesDir/MessageOfTheDay.txt | Get-Random;
 }
 else {
