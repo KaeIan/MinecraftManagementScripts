@@ -11,5 +11,9 @@ param (
 	$BackupDirectory = "/home/minecraft/Server/Backups"
 )
 
+if(!Test-Path $BackupDirectory) {
+	New-Item -Path $BackupDirectory -ItemType Directory
+}
+
 $BackupName = "MinecraftServerBackup-" + (Get-Date -Format "dd-MM-yyyy")
 zip -r "$BackupDirectory/$BackupName.zip" $ServerDirectory
