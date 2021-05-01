@@ -8,7 +8,7 @@ param (
 	[Parameter(Position = 1)]
 	[ValidateNotNullOrEmpty()]
 	[String]
-	$BackupDirectory = "/home/minecraft/Server/Backups"
+	$BackupDirectory = "/home/minecraft/Backups"
 )
 
 if(!(Test-Path $BackupDirectory)) {
