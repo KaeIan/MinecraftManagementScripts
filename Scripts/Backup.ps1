@@ -3,8 +3,13 @@ param (
 	[Parameter(Position = 0)]
 	[ValidateNotNullOrEmpty()]
 	[String]
-	$ServerDirectory = "/home/minecraft/Server"
+	$ServerDirectory = "/home/minecraft/Server",
+
+	[Parameter(Position = 1)]
+	[ValidateNotNullOrEmpty()]
+	[String]
+	$BackupDirectory = "/home/minecraft/Server/Backups"
 )
 
 $BackupName = "MinecraftServerBackup-" + (Get-Date -Format "dd-MM-yyyy")
-zip -r "$BackupName.zip" $ServerDirectory
+zip -r "$BackupDirectory/$BackupName.zip" $ServerDirectory
