@@ -13,7 +13,7 @@ param (
 # get resources path.
 $ResourcesDir = Join-Path -Path $PSScriptRoot -ChildPath ..\Resources
 
-if ($null -eq $Motd) {
+if (!$Motd) {
 	$message = Get-Content $ResourcesDir/MessageOfTheDay.txt | Get-Random;
 }
 else {
